@@ -1,0 +1,84 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@using NetcodeHub.Packages.Components.OnPageLoadValidation
+@using NetcodeHub.Packages.Components.Validations.OnInput
+
+<h1>Default Blazor Components</h1>
+<EditForm Model="ProductModel" OnValidSubmit="SaveProduct">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+     <NetcodeHubEditFormValidatorOnPageLoad /> 
+    <div class="mt-3">
+        <label class="form-label">Name</label>
+        <InputText @bind-Value="ProductModel.Name" class="form-control" />
+        <ValidationMessage For="() => ProductModel.Name" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Quantity</label>
+        <InputNumber @bind-Value="ProductModel.Quantity" class="form-control" />
+        <ValidationMessage For="() => ProductModel.Quantity" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Description</label>
+        <InputTextArea @bind-Value="ProductModel.Description" class="form-control" />
+        <ValidationMessage For="() => ProductModel.Description" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3 mb-5">Save</button>
+</EditForm>
+
+<h1> Floating Components</h1>
+<EditForm Model="ProductModel2" OnValidSubmit="SaveProduct">
+    <DataAnnotationsValidator />
+    <NetcodeHubEditFormValidatorOnPageLoad />
+    <FloatingText @bind-Value="ProductModel2.Name" class="form-control"  Label="Name"/>
+    <ValidationMessage For="() => ProductModel2.Name" />
+    <FloatingNumber @bind-Value="ProductModel2.Quantity" class="form-control" Label="Quantity" />
+    <ValidationMessage For="() => ProductModel2.Quantity" />
+    <FloatingTextArea @bind-Value="ProductModel2.Description" class="form-control" Label="Description" />
+    <ValidationMessage For="() => ProductModel2.Description" />
+    <button type="submit" class="btn btn-primary mt-3 mb-5">Save</button>
+</EditForm>
+
+
+
+<h1>Unfloating Components</h1>
+<EditForm Model="ProductModel3" OnValidSubmit="SaveProduct">
+    <DataAnnotationsValidator />
+    <NetcodeHubEditFormValidatorOnPageLoad />
+    <div class="mt-3">
+        <label class="form-label">Name</label>
+        <Text @bind-Value="ProductModel3.Name" class="form-control" />
+        <ValidationMessage For="() => ProductModel3.Name" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Quantity</label>
+        <Number @bind-Value="ProductModel3.Quantity" class="form-control" />
+        <ValidationMessage For="() => ProductModel3.Quantity" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Description</label>
+        <TextArea @bind-Value="ProductModel3.Description" class="form-control" />
+        <ValidationMessage For="() => ProductModel3.Description" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</EditForm>
+@code{
+    Product ProductModel = new();
+    Product ProductModel2 = new();
+    Product ProductModel3 = new();
+    void SaveProduct()
+    {
+        
+    }
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required, MinLength(5), MaxLength(10)]
+        public string? Name { get; set; }
+        [Required, Range(1, 10)]
+        public int Quantity { get; set; }
+        [Required, MinLength(5), MaxLength(10)]
+        public string? Description { get; set; }
+    }
+}
