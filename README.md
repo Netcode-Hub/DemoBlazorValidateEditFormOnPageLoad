@@ -48,12 +48,10 @@
             public string? Description { get; set; }
         }
     }
+# When the page starts, Validation begins
 ![image](https://github.com/Netcode-Hub/DemoBlazorValidateEditFormOnPageLoad/assets/110794348/ff7aca1d-2fcf-4b96-a052-171ab1e01c62)
 ![image](https://github.com/Netcode-Hub/DemoBlazorValidateEditFormOnPageLoad/assets/110794348/6ef3a9a9-cddb-4bb1-acbc-192a67d52e8b)
 ![image](https://github.com/Netcode-Hub/DemoBlazorValidateEditFormOnPageLoad/assets/110794348/8e42ac42-3583-4547-9430-5c9450d661a4)
-
-# When the page starts, Validation begins
-![image](https://github.com/Netcode-Hub/NetcodeHub.Packages.Components.OnPageLoadValidation/assets/110794348/6e37a69d-f054-4dca-8c8c-2a9adbdc99a3)
 
 # Here's a follow-up section to encourage engagement and support for Netcode-Hub:
 🌟 Get in touch with Netcode-Hub! 📫
